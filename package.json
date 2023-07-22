@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
     "express": "^4.18.2",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Super-Cereal/shri-2023-multimedia-homework/issues"
   },
-  "homepage": "https://github.com/Super-Cereal/shri-2023-multimedia-homework#readme"
+  "homepage": "https://github.com/Super-Cereal/shri-2023-multimedia-homework#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }

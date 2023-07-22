@@ -23,14 +23,12 @@ body {
 }
 
 .controls {
-    position: absolute;
-
     display: flex;
     flex-direction: column;
-
-    top: 24px;
+    position: absolute;
     right: 0;
-
+    top: 24px;
+    width: 100%;
     z-index: 1;
 }
 
@@ -43,11 +41,41 @@ label {
 }
 
 .progress {
-    position: absolute;
-
-    width: 100%;
-    padding: 8px;
+    align-items: center;
     box-sizing: border-box;
-
+    display: flex;
+    column-gap: 5px;
+    padding: 8px;
+    position: absolute;
+    width: 100%;
     z-index: 1;
+}
+
+.stories__video {
+    display: none;
+}
+
+.stories__video_visible {
+    display: block;
+}
+
+.progress__bar {
+    background-color: #000;
+    border-radius: 10px;
+    flex-grow: 1;
+    height: 6px;
+    overflow: hidden;
+}
+
+.progress__bar-value {
+    background-color: darkgoldenrod;
+    display: block;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .3s linear;
+    width: 100%;
+}
+.controls__filters {
+    align-self: center;
 }

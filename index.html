@@ -16,55 +16,28 @@
     <div class="progress">
         <!-- script inserted progress-bars -->
     </div>
-    <div class="stories" onclick="togglePlay()">
+    <div class="stories">
         <!-- script inserted stories -->
     </div>
     <div class="controls">
-        <button>Предыдущий</button>
-        <button>Следующий</button>
+        <button id="previous-button">Предыдущий</button>
+        <button id="next-button">Следующий</button>
 
-        <div>
-            <label for="brightness-input">Яркость</label>
-            <input type="range" id="brightness-input" />
-            <label for="brightness-input" id="brightness-input-value">1</label>
-        </div>
-        <div>
-            <label for="contrast-input">Контраст</label>
-            <input type="range" id="contrast-input" />
-            <label for="contrast-input" id="contrast-input-value">1</label>
+        <div class="controls__filters">
+            <div>
+                <label for="brightness-input">Яркость</label>
+                <input type="range" id="brightness-input" />
+                <label for="brightness-input" id="brightness-input-value">1</label>
+            </div>
+            <div>
+                <label for="contrast-input">Контраст</label>
+                <input type="range" id="contrast-input" />
+                <label for="contrast-input" id="contrast-input-value">1</label>
+            </div>
         </div>
     </div>
 </div>
 
-<script>
-    const videosSrc = [
-        'http://localhost:3000/vids/1.mp4',
-        'http://localhost:3000/vids/2.mp4',
-        'http://localhost:3000/vids/3.mp4',
-        'http://localhost:3000/vids/4.mp4',
-        'http://localhost:3000/vids/5.mp4',
-    ];
-
-    const MAX_SLIDER_WIDTH = 400;
-
-    const progressContainer = document.querySelector('.progress');
-    const slider = document.querySelector('.stories');
-
-    function initStory(id, src) {
-        slider.insertAdjacentHTML(
-            'beforeend',
-            `<div class="stories__story">
-                        <video id="video-${id}" class="stories__video" src="${src}"></video>
-                    </div>`,
-        );
-
-        progressContainer.insertAdjacentHTML(
-            'beforeend',
-            `<span class="progress__bar">
-                        <span id="progress-${id}" class="progress__bar-value"></span>
-                    </span>`,
-        );
-    }
-</script>
+<script src="http://localhost:3000/script.js"></script>
 </body>
 </html>

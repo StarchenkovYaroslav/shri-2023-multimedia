@@ -9,6 +9,10 @@ app.use('/index.css', function (_, res) {
     res.sendFile('index.css', { root: __dirname });
 });
 
+app.use('/script.js', function (_, res) {
+    res.sendFile('script.js', { root: __dirname });
+});
+
 app.use('/vids', express.static('vids'));
 
 app.listen(3000, () => {
