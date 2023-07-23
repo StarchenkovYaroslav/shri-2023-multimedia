@@ -7,6 +7,8 @@ const videosSrc = [
 ];
 
 const MAX_SLIDER_WIDTH = 400;
+const initialBrightness = 100
+const initialContrast = 100
 
 let playingVideoIndex = 0
 
@@ -97,6 +99,28 @@ function init() {
         }
     })
 
+    const brightnessInput = document.querySelector('#brightness-input')
+    const contrastInput = document.querySelector('#contrast-input')
+
+    const brightnessValue = document.querySelector('#brightness-input-value')
+    const contrastValue = document.querySelector('#contrast-input-value')
+
+    brightnessInput.oninput = (evt) => {
+        brightnessValue.textContent = evt.target.value
+        videosElements.forEach(videElement => {
+            videElement.style.filter =
+                `brightness(${evt.target.value / 100}) contrast(${contrastInput.value / 100})`
+        })
+    }
+
+    contrastInput.oninput = (evt) => {
+        contrastValue.textContent = evt.target.value
+        videosElements.forEach(videElement => {
+            videElement.style.filter =
+                `brightness(${brightnessInput.value / 100}) contrast(${evt.target.value / 100})`
+        })
+    }
+
     storiesElement.onclick = () => {
         if (videosElements[playingVideoIndex].paused) {
             videosElements[playingVideoIndex].play()
@@ -105,6 +129,13 @@ function init() {
         }
     }
 
+    brightnessInput.value = initialBrightness
+    contrastInput.value = initialContrast
+
+    brightnessValue.textContent = String(initialBrightness)
+    contrastValue.textContent = String(initialContrast)
+
+    videosElements[playingVideoIndex].style.filter = 'brightness(1) contrast(1)'
     toggleVideoVisibility(videosElements[playingVideoIndex])
     videosElements[playingVideoIndex].play()
 }
